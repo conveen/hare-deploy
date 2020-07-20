@@ -1,0 +1,18 @@
+# hare_engine.debian.service
+# Conveen
+# 07/15/2020
+
+[Unit]
+Description=Hare: Smart Shortcut Engine
+After=syslog.target
+
+[Service]
+ExecStart=/usr/local/bin/uwsgi --ini /var/www/hare/hare_engine.ini
+Restart=always
+RestartSec=3
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
