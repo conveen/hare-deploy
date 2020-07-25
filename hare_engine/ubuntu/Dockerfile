@@ -55,9 +55,9 @@ COPY nginx/hare_engine.http.conf /etc/nginx/sites-available/hare_engine.conf
 RUN ln -s /etc/nginx/sites-available/hare_engine.conf /etc/nginx/sites-enabled/hare_engine.conf
 
 # Copy entrypoint to container
-COPY run.sh .
+COPY docker_run.sh .
 
 # Change ownership of hare directory to www-data
 RUN chown -R www-data:www-data /var/www/hare
 
-ENTRYPOINT ["./run.sh"]
+ENTRYPOINT ["./docker_run.sh"]
